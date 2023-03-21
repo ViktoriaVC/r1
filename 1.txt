@@ -1,4 +1,5 @@
 <?php
+<?php
 // *	@copyright	OPENCART.PRO 2011 - 2017.
 // *	@forum	http://forum.opencart.pro
 // *	@source		See SOURCE.txt for source and other copyright.
@@ -74,17 +75,7 @@ class ControllerProductProduct extends Controller {
 		$data['ocf'] = array();
 			$results = $this->model_catalog_product->ocfmpi($this->request->get['product_id']);
 
-			foreach ($results as $result) {
-				$results_f1 = $this->model_catalog_product->ocfmi($this->request->get['product_id'],$result['option_ocfilter']);
-				$data['ocf'][] = array(
-					'name'	=> $result['name'],
-					'url'	=> $result['url'],
-					'keyword'	=> $result['keyword'],
-					'filter'	=> $fil,
-					'filter_name'	=> $results_f1[0]['name'],
-					'filter_keyword'	=> $results_f1[0]['keyword']
-				);
-			}
+		
 		$this->load->model('catalog/manufacturer');
 
 		if (isset($this->request->get['manufacturer_id'])) {
